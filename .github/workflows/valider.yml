@@ -1,0 +1,34 @@
+# Valide themes.json à chaque pull request et à chaque poussée sur main.
+#
+# CE QUE CE FICHIER REND POSSIBLE. Sans lui, chaque thème proposé demanderait une relecture
+# humaine — donc une file d'attente, donc un plafond par personne pour que la file reste
+# tenable. La validation étant CALCULABLE (un thème n'est que des couleurs et des nombres),
+# c'est la machine qui répond, en quelques secondes, et le plafond n'a plus lieu d'être.
+#
+# `pull_request` et non `pull_request_target` : le second exécuterait le code de la branche
+# de base AVEC les secrets du dépôt sur une contribution extérieure. Ici on n'a besoin
+# d'aucun secret — on lit un fichier JSON — donc on prend la variante sans privilèges.
+name: Valider la galerie
+
+on:
+  pull_request:
+    paths: ['themes.json', 'themes-format.mjs', 'themes-galerie.mjs', 'valider.mjs']
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  valider:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # Aucun `npm install` : le validateur n'a AUCUNE dépendance, exprès. Une galerie
+      # communautaire qui casse parce qu'un paquet tiers a changé serait un mauvais échange.
+      - name: Valider themes.json
+        run: node valider.mjs

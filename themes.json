@@ -1,0 +1,183 @@
+{
+  "_lisezmoi": "Un thème par entrée. Ajoute la tienne à la fin, ouvre une pull request, la CI vérifie. Rien d'autre n'est hébergé ici : ni image, ni code, ni compte. Voir README.md.",
+  "themes": [
+    {
+      "format": 1,
+      "id": "minuit-bleu",
+      "nom": "Minuit bleu",
+      "auteur": "Sillon",
+      "description": "Bleu de nuit profond, accent ciel. Reposant pour écouter tard.",
+      "base": "sillon",
+      "jetons": {
+        "fond": "#0b0f1a",
+        "surface": "#141a2a",
+        "survol": "#1c2438",
+        "bordure": "#243048",
+        "texteDiscret": "#9aa8c4",
+        "accent": "#7aa2f7",
+        "modale": "#131a2b",
+        "panneau": "#0e1424"
+      }
+    },
+    {
+      "format": 1,
+      "id": "braise",
+      "nom": "Braise",
+      "auteur": "Sillon",
+      "description": "Noir chaud et orange de foyer, pour les soirées d'hiver.",
+      "base": "sillon",
+      "jetons": {
+        "fond": "#14100e",
+        "surface": "#211a16",
+        "survol": "#2b2119",
+        "bordure": "#3a2c22",
+        "texteDiscret": "#bda694",
+        "accent": "#ff8a3d",
+        "modale": "#1d1713",
+        "panneau": "#181310"
+      }
+    },
+    {
+      "format": 1,
+      "id": "papier",
+      "nom": "Papier",
+      "auteur": "Sillon",
+      "description": "Thème clair, ton ivoire et encre rouge. Pour écouter en plein jour.",
+      "base": "sillon",
+      "jetons": {
+        "fond": "#f6f4ef",
+        "surface": "#ffffff",
+        "survol": "#ebe7de",
+        "bordure": "#d8d2c6",
+        "texte": "#1b1a17",
+        "texteDiscret": "#5b5750",
+        "accent": "#b4451f",
+        "modale": "#ffffff",
+        "panneau": "#efece4"
+      }
+    },
+    {
+      "format": 1,
+      "id": "studio-nuit",
+      "nom": "Studio nuit",
+      "auteur": "Sillon",
+      "description": "L'habillage Studio en violet sourd, coins très arrondis.",
+      "base": "studio",
+      "jetons": {
+        "fond": "#08060c",
+        "surface": "#191325",
+        "survol": "#221a33",
+        "bordure": "#2f2445",
+        "texteDiscret": "#b0a3c8",
+        "accent": "#a97bff",
+        "modale": "#171122",
+        "rayon": 18,
+        "panneau": "#110c1a",
+        "studioSurvol": "#241b38",
+        "studioPastille": "#1d1630",
+        "studioFondProfond": "#0d0914",
+        "studioTexteFaible": "#8d80a6",
+        "studioBordureFocus": "#5b4a80"
+      }
+    },
+    {
+      "format": 1,
+      "id": "foret",
+      "nom": "Forêt",
+      "auteur": "Sillon",
+      "description": "Vert profond de sous-bois, accent pousse fraîche. Sombre sans être noir.",
+      "base": "sillon",
+      "jetons": {
+        "fond": "#0b120e",
+        "surface": "#14201a",
+        "survol": "#1c2b23",
+        "bordure": "#26382e",
+        "texteDiscret": "#9db3a6",
+        "accent": "#4ade80",
+        "modale": "#16241d",
+        "panneau": "#0e1812"
+      }
+    },
+    {
+      "format": 1,
+      "id": "ardoise",
+      "nom": "Ardoise",
+      "auteur": "Sillon",
+      "description": "Gris bleuté neutre et accent ciel. Le plus sobre des thèmes sombres.",
+      "base": "sillon",
+      "jetons": {
+        "fond": "#121417",
+        "surface": "#1c2025",
+        "survol": "#252a30",
+        "bordure": "#313840",
+        "texteDiscret": "#a3adb8",
+        "accent": "#7dd3fc",
+        "modale": "#1e2228",
+        "panneau": "#16191d"
+      }
+    },
+    {
+      "format": 1,
+      "id": "aurore",
+      "nom": "Aurore",
+      "auteur": "Sillon",
+      "description": "Thème clair, bleu froid du petit matin. Lisible en plein soleil.",
+      "base": "sillon",
+      "jetons": {
+        "fond": "#eef2f7",
+        "surface": "#ffffff",
+        "survol": "#dfe6ef",
+        "bordure": "#c8d3e0",
+        "texte": "#16202c",
+        "texteDiscret": "#4d5a6b",
+        "accent": "#2563eb",
+        "modale": "#ffffff",
+        "panneau": "#e6ecf4"
+      }
+    },
+    {
+      "format": 1,
+      "id": "studio-ivoire",
+      "nom": "Studio ivoire",
+      "auteur": "Sillon",
+      "description": "L'habillage Studio en clair : panneaux ivoire, accent terre cuite.",
+      "base": "studio",
+      "jetons": {
+        "fond": "#faf8f4",
+        "surface": "#ffffff",
+        "survol": "#ece7de",
+        "bordure": "#d9d2c6",
+        "texte": "#1c1a16",
+        "texteDiscret": "#57524a",
+        "accent": "#c2410c",
+        "modale": "#ffffff",
+        "rayon": 12,
+        "panneau": "#f2eee7",
+        "studioSurvol": "#e6e0d6",
+        "studioPastille": "#efeae1",
+        "studioFondProfond": "#f5f2ec",
+        "studioTexteFaible": "#6b655c",
+        "studioBordureFocus": "#a89f92"
+      }
+    },
+    {
+      "format": 1,
+      "id": "contraste",
+      "nom": "Contraste",
+      "auteur": "Sillon",
+      "description": "Noir absolu, texte blanc franc, accent jaune. Pour lire sans effort.",
+      "base": "sillon",
+      "jetons": {
+        "fond": "#000000",
+        "surface": "#0d0d0d",
+        "survol": "#1a1a1a",
+        "bordure": "#4d4d4d",
+        "texte": "#ffffff",
+        "texteDiscret": "#e0e0e0",
+        "accent": "#ffd400",
+        "modale": "#0d0d0d",
+        "panneau": "#000000"
+      }
+    }
+  ]
+}
