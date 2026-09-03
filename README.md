@@ -93,7 +93,7 @@ partage n'a aucune limite non plus.
 Sillon récupère `themes.json` **via un CDN public**, pas via l'API GitHub :
 
 ```
-https://cdn.jsdelivr.net/gh/<compte>/<dépôt>@main/themes.json
+https://cdn.jsdelivr.net/gh/Plagnito/sillon-themes@main/themes.json
 ```
 
 L'API GitHub limite à 60 requêtes par heure et par adresse IP quand on n'est pas
