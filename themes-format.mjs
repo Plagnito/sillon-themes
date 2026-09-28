@@ -178,6 +178,52 @@ export function verifierLisibilite(palette) {
 }
 
 /* ---------------------------------------------------------------------------------------
+   Ce qui sert à RANGER un thème dans la galerie (ajout du 28/09/2026, format 1 inchangé).
+   ---------------------------------------------------------------------------------------
+   Deux champs FACULTATIFS, et deux étiquettes CALCULÉES.
+
+   • `ambiance` — la catégorie, choisie par l'auteur dans une liste FERMÉE. Pas de texte
+     libre : une catégorie libre devient cent orthographes de « sombre », et la galerie ne
+     sait plus rien trier. Une valeur hors liste est une ERREUR, comme un jeton inconnu :
+     c'est presque toujours une faute de frappe.
+   • `version` — un entier que l'auteur augmente quand il retouche son thème. C'est ce qui
+     permet de dire « mise à jour disponible » à ceux qui l'ont installé, sans comparer les
+     couleurs une à une. Absent = 1.
+
+   Les ÉTIQUETTES (`etiquettes()`), elles, ne se déclarent pas : clair ou sombre, contraste
+   élevé ou non, se DÉDUISENT de la palette. Une étiquette déclarée pourrait mentir (un
+   thème « clair » sombre) ; une étiquette calculée ne le peut pas, et ne demande rien.
+
+   Pourquoi le format reste 1 : ces deux champs sont facultatifs, et une version de Sillon
+   qui les ignore affiche le thème exactement pareil. Monter le numéro de format ferait
+   refuser des thèmes que les anciennes versions savent parfaitement peindre.
+   ------------------------------------------------------------------------------------- */
+export const AMBIANCES = {
+  nuit: 'Nuit', chaleureux: 'Chaleureux', frais: 'Frais', nature: 'Nature',
+  pastel: 'Pastel', neon: 'Néon', sobre: 'Sobre', retro: 'Rétro',
+};
+export const VERSION_MAX = 9999;
+
+/* Seuil « contraste élevé » : 10:1 sur le PIRE couple (texte discret compris). Pas le 7:1
+   du niveau AAA de WCAG : mesuré sur la galerie, un thème sombre ordinaire et bien fait
+   tourne déjà autour de 7 à 8 — l'étiquette aurait couvert presque tout le monde et n'aurait
+   plus rien distingué. À 10, elle désigne ce qu'elle promet : les thèmes faits pour lire
+   sans effort (« Contraste » : 14,7 ; les autres : 6,2 à 8,1). */
+export const SEUIL_ELEVE = 10;
+
+/**
+ * Les étiquettes calculées d'une palette complète.
+ * `clair` : le texte est plus sombre que la surface qui le porte — le MÊME critère que la
+ * page (`majThemeClair` dans app.js), pour que la galerie et l'écran disent la même chose.
+ */
+export function etiquettes(palette) {
+  const clair = luminance(palette.texte) < luminance(palette.surface);
+  let mini = Infinity;
+  for (const c of COUPLES) mini = Math.min(mini, contraste(palette[c.texte], palette[c.fond]));
+  return { clair, contrasteEleve: mini >= SEUIL_ELEVE };
+}
+
+/* ---------------------------------------------------------------------------------------
    Validation.
    ------------------------------------------------------------------------------------- */
 /* Les caractères de contrôle n'ont rien à faire dans un nom : ils ne s'affichent pas et
@@ -224,6 +270,14 @@ export function normaliser(brut) {
   const description = brut.description === undefined || brut.description === null || brut.description === '' ? '' : texteCourt(brut.description, 140);
   if (description === null) erreurs.push('Description trop longue (140 caractères maximum).');
 
+  const ambiance = brut.ambiance === undefined || brut.ambiance === null || brut.ambiance === '' ? '' : brut.ambiance;
+  if (ambiance !== '' && !(typeof ambiance === 'string' && Object.prototype.hasOwnProperty.call(AMBIANCES, ambiance))) {
+    erreurs.push(`Ambiance inconnue : ${JSON.stringify(ambiance)}. Attendu l'une de : ${Object.keys(AMBIANCES).join(', ')}.`);
+  }
+
+  const version = brut.version === undefined || brut.version === null ? 1 : brut.version;
+  if (!Number.isInteger(version) || version < 1 || version > VERSION_MAX) erreurs.push(`Version invalide : un entier de 1 à ${VERSION_MAX} (reçu ${JSON.stringify(brut.version)}).`);
+
   /* Les jetons. Un jeton inconnu est une ERREUR, pas un silence : c'est presque toujours une
      faute de frappe, et une couleur qu'on a réglée mais qui ne s'applique jamais est
      exactement le genre de défaut qu'on cherche une heure. La compatibilité ascendante est
@@ -255,7 +309,7 @@ export function normaliser(brut) {
   avertissements.push(...lis.avertissements);
   if (erreurs.length) return { ok: false, erreurs, avertissements, theme: null };
 
-  return { ok: true, erreurs, avertissements, theme: { format: FORMAT, id, nom, auteur, description, base, jetons } };
+  return { ok: true, erreurs, avertissements, theme: { format: FORMAT, id, nom, auteur, description, base, jetons, ambiance, version } };
 }
 
 /**
@@ -293,5 +347,7 @@ export function charge(theme) {
   const c = { format: FORMAT, id: theme.id, nom: theme.nom, base: theme.base, jetons: theme.jetons };
   if (theme.auteur) c.auteur = theme.auteur;
   if (theme.description) c.description = theme.description;
+  if (theme.ambiance) c.ambiance = theme.ambiance;
+  if (theme.version && theme.version > 1) c.version = theme.version;
   return c;
 }

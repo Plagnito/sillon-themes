@@ -55,6 +55,14 @@ node valider.mjs
 | `description` | oui *(en galerie)* | une phrase, 140 caractères maximum |
 | `base` | non | `sillon` (défaut) ou `studio` — l'habillage pour lequel tu as réglé les couleurs |
 | `jetons` | oui | au moins un ; tout ce que tu ne déclares pas garde la couleur de la base |
+| `ambiance` | non | la catégorie où ranger ton thème : `nuit`, `chaleureux`, `frais`, `nature`, `pastel`, `neon`, `sobre` ou `retro` |
+| `version` | non | un entier (1 par défaut) ; augmente-le quand tu retouches ton thème, et ceux qui l'ont installé verront « Mettre à jour » |
+
+**Ce que tu n'as pas à déclarer** : clair ou sombre, et « contraste élevé ». Sillon les
+calcule à partir de tes couleurs — une étiquette calculée ne peut pas se tromper.
+**Ce qui n'existe pas, volontairement** : un compteur de téléchargements. La galerie est
+un simple fichier ; compter les installations demanderait que chaque Sillon signale ce
+qu'il installe à un serveur, et Sillon n'envoie rien de ce genre.
 
 Les jetons disponibles, leurs noms exacts et leurs valeurs par défaut sont dans
 **`themes-format.mjs`** — c'est le fichier qui fait autorité, et c'est lui que la CI

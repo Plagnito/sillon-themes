@@ -8,6 +8,7 @@
       "auteur": "Sillon",
       "description": "Bleu de nuit profond, accent ciel. Reposant pour écouter tard.",
       "base": "sillon",
+      "ambiance": "nuit",
       "jetons": {
         "fond": "#0b0f1a",
         "surface": "#141a2a",
@@ -26,6 +27,7 @@
       "auteur": "Sillon",
       "description": "Noir chaud et orange de foyer, pour les soirées d'hiver.",
       "base": "sillon",
+      "ambiance": "chaleureux",
       "jetons": {
         "fond": "#14100e",
         "surface": "#211a16",
@@ -44,6 +46,7 @@
       "auteur": "Sillon",
       "description": "Thème clair, ton ivoire et encre rouge. Pour écouter en plein jour.",
       "base": "sillon",
+      "ambiance": "retro",
       "jetons": {
         "fond": "#f6f4ef",
         "surface": "#ffffff",
@@ -63,6 +66,7 @@
       "auteur": "Sillon",
       "description": "L'habillage Studio en violet sourd, coins très arrondis.",
       "base": "studio",
+      "ambiance": "nuit",
       "jetons": {
         "fond": "#08060c",
         "surface": "#191325",
@@ -87,6 +91,7 @@
       "auteur": "Sillon",
       "description": "Vert profond de sous-bois, accent pousse fraîche. Sombre sans être noir.",
       "base": "sillon",
+      "ambiance": "nature",
       "jetons": {
         "fond": "#0b120e",
         "surface": "#14201a",
@@ -105,6 +110,7 @@
       "auteur": "Sillon",
       "description": "Gris bleuté neutre et accent ciel. Le plus sobre des thèmes sombres.",
       "base": "sillon",
+      "ambiance": "sobre",
       "jetons": {
         "fond": "#121417",
         "surface": "#1c2025",
@@ -123,6 +129,7 @@
       "auteur": "Sillon",
       "description": "Thème clair, bleu froid du petit matin. Lisible en plein soleil.",
       "base": "sillon",
+      "ambiance": "frais",
       "jetons": {
         "fond": "#eef2f7",
         "surface": "#ffffff",
@@ -142,6 +149,7 @@
       "auteur": "Sillon",
       "description": "L'habillage Studio en clair : panneaux ivoire, accent terre cuite.",
       "base": "studio",
+      "ambiance": "chaleureux",
       "jetons": {
         "fond": "#faf8f4",
         "surface": "#ffffff",
@@ -167,6 +175,7 @@
       "auteur": "Sillon",
       "description": "Noir absolu, texte blanc franc, accent jaune. Pour lire sans effort.",
       "base": "sillon",
+      "ambiance": "sobre",
       "jetons": {
         "fond": "#000000",
         "surface": "#0d0d0d",
